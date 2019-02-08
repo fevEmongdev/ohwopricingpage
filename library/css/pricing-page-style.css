@@ -275,3 +275,6 @@ ul, li {
 
 .expand{ cursor: pointer; }
 .expand i{ font-size: 25px;}
+
+.total-pricing{ font-size: 26px; background-color: #f48771; padding: 10px; display:none; color: #fff;}
+.total-pricing.active{display:block; }

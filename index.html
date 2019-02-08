@@ -120,7 +120,7 @@
                 <span class="month">mo</span>
               </div>
               <ul class="expandible">
-                <li>500 - 1,000</li>
+                <li>1,000 - 3,000</li>
 				<li>Unlimited</li>
 				<li>0.04</li>
 				<li><i class="fa fa-check" aria-hidden="true"></i></li>
@@ -157,7 +157,7 @@
                 <span class="month">mo</span>
               </div>
               <ul class="expandible">
-                <li>500 - 1,000</li>
+                <li>3,000 - 5,000</li>
 				<li>Unlimited</li>
 				<li>0.03</li>
 				<li><i class="fa fa-check" aria-hidden="true"></i></li>
@@ -194,7 +194,7 @@
                 <span class="month">mo</span>
               </div>
               <ul class="expandible">
-                <li>500 - 1,000</li>
+                <li>5,000 - 10,000</li>
 				<li>Unlimited</li>
 				<li>0.02</li>
 				<li><i class="fa fa-check" aria-hidden="true"></i></li>
@@ -231,7 +231,7 @@
                 <span class="month">mo</span>
               </div>
               <ul class="expandible">
-                <li>500 - 1,000</li>
+                <li>10,000 - 20,000</li>
 				<li>Unlimited</li>
 				<li>0.02</li>
 				<li><i class="fa fa-check" aria-hidden="true"></i></li>
@@ -259,9 +259,10 @@
             </div>
 			
 			<div class="plan popular">
-			  <h2>WHAT???</h2> 	
-              <input type="text" class="input-quantity" value="7,500" />
-              <a class="button sign-up" href="#">Calculate</a>
+			  <h2>WHAT???</h2><br /> 	
+			  <strong class="total-pricing"></strong>
+              <input type="text" class="input-quantity" value="7500" />
+              <a class="button sign-up" id="calculate-monthly" href="#">Calculate</a>
                 <!--<p class="pop-plan">Most Popular Plan</p>-->
              <ul class="expandible">
                 <li>20k - 200k</li>
@@ -387,7 +388,7 @@
                 <span class="month">mo</span>
               </div>
               <ul class="expandible">
-                <li>500 - 1,000</li>
+                <li>1,000 - 3,000</li>
 				<li>Unlimited</li>
 				<li>0.04</li>
 				<li><i class="fa fa-check" aria-hidden="true"></i></li>
@@ -424,7 +425,7 @@
                 <span class="month">mo</span>
               </div>
               <ul class="expandible">
-                <li>500 - 1,000</li>
+                <li>3,000 - 5,000</li>
 				<li>Unlimited</li>
 				<li>0.03</li>
 				<li><i class="fa fa-check" aria-hidden="true"></i></li>
@@ -461,7 +462,7 @@
                 <span class="month">mo</span>
               </div>
               <ul class="expandible">
-                <li>500 - 1,000</li>
+                <li>5,000 - 10,000</li>
 				<li>Unlimited</li>
 				<li>0.02</li>
 				<li><i class="fa fa-check" aria-hidden="true"></i></li>
@@ -498,7 +499,7 @@
                 <span class="month">mo</span>
               </div>
               <ul class="expandible">
-                <li>500 - 1,000</li>
+                <li>10,000 - 20,000</li>
 				<li>Unlimited</li>
 				<li>0.02</li>
 				<li><i class="fa fa-check" aria-hidden="true"></i></li>
@@ -526,9 +527,10 @@
             </div>
 			
 			<div class="plan popular">
-			  <h2>WHAT???</h2> 	
-              <input type="text" class="input-quantity" value="7,500" />
-              <a class="button sign-up" href="#">Calculate</a>
+			  <h2>WHAT???</h2><br />
+			  <strong class="total-pricing"></strong>
+              <input type="text" class="input-quantity" value="7500" />
+              <a class="button sign-up" id="calculate-yearly" href="#">Calculate</a>
                 <!--<p class="pop-plan">Most Popular Plan</p>-->
              <ul class="expandible">
                 <li>20k - 200k</li>
@@ -599,7 +601,6 @@
 		  m.classList.toggle("hide");
 		  y.classList.toggle("hide");
 		})
-
 		
 		$('ul.expandible').each(function(){
 			var lis = $(this).find('li:gt(12)');
@@ -626,8 +627,34 @@
 			$('ul.expandible').find('li:gt(12)').toggle();
 			$('.expand').show();
 			event.preventDefault();
+		});
+
+		$('#calculate-monthly').click(function(){
+			
+			var thisPreValue = $(this).prev('.input-quantity').val();
+			//var thisPreValueSplit = thisPreValue.split(",");
+			//alert(thisPreValueSplit);
+			//alert(thisPreValue * parseInt(0.003).toFixed(2));
+	
+			var total = thisPreValue * 0.003;	
+			console.log(parseInt(total));
+			$(this).prev().prev('.total-pricing').text("$" +total).addClass('active');
 			
 		});
+		
+		$('#calculate-yearly').click(function(){
+			
+			var thisPreValue = $(this).prev('.input-quantity').val();
+			//var thisPreValueSplit = thisPreValue.split(",");
+			//alert(thisPreValueSplit);
+			//alert(thisPreValue * parseInt(0.003).toFixed(2));
+	
+			var total = 0.003 * thisPreValue * 10 / 12;	
+			console.log(parseInt(total));
+			$(this).prev().prev('.total-pricing').text("$" +total).addClass('active');
+			
+		});
+
 			
 	</script>
 	
